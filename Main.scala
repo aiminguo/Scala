@@ -25,20 +25,19 @@ object Main {
    */
   def balance(chars: List[Char]): Boolean = {
     def doBanlance(chars: List[Char], rightParenNumber: Int): Boolean = {
-      if (chars.length == 0) {
-	    	rightParenNumber == 0
-	    } else {
-	       val temp = 
-		      chars.head match {
-			      case '(' => rightParenNumber + 1
-			      case ')' => rightParenNumber - 1
-			      case _ => rightParenNumber
-	      	}
-	      if (temp >= 0)
-	    	  doBanlance(chars.tail, temp)
-	      else
-	    	  false
-	    }
+	if (chars.length == 0) {
+	    rightParenNumber == 0
+	} else {
+	    val temp = chars.head match {
+		      case '(' => rightParenNumber + 1
+		      case ')' => rightParenNumber - 1
+		      case _ => rightParenNumber
+	}
+	if (temp >= 0)
+	  doBanlance(chars.tail, temp)
+	else
+	  false
+	}
     }
     doBanlance(chars, 0)
   }
